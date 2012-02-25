@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>CrossDomainAjax</title>
+<script>
+var Request = function() {
+    var url = 'http://mobiles-proxy.appspot.com/CrossDomain';
+    var XHR;
+    // IE対策
+    if( window.XDomainRequest ) {
+        XHR = new XDomainRequest();
+        XHR.onload = function(){ 
+           echo( XHR.responseText )
+        };
+        XHR.open( 'GET', url );
+        XHR.send();
+    // IE以外
+    } else {
+        XHR = new XMLHttpRequest();
+        XHR.onreadystatechange = function(){
+            if( XHR.readyState === 4 && XHR.status == 200 ) 
+                echo( XHR.responseText );
+            };
+        XHR.open( 'GET', url, true );  
+        XHR.send();
+    }
+}
+var echo = function( text ) {
+    alert( text );
+}
+</script>
+</head>
+<body>
+<input type='button' name='ajax' value='CrossDomainRequest' onClick='javascript:Request();' />
+</body>
+</html>
