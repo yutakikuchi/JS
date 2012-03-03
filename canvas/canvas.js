@@ -35,11 +35,13 @@
         can.stroke();
         Canvas.attr.lastposition = Canvas.attr.position;
     };
+
     Canvas.attr = {};
     Canvas.attr.drawing = false;
     Canvas.attr.lastposition = { x:0, y:0 };
     Canvas.attr.position = { x:0, y:0 };
     Canvas.attr.Object = Canvas.getObject();
-    Canvas.attr.Object.strokeStyle = 'red'; 
-    Canvas.attr.Object.lineWidth = 5;
+    Canvas.attr.Object.strokeStyle = 'black'; 
+    Canvas.attr.Object.lineWidth = 10;
+
 })();
